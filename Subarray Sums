@@ -1,0 +1,37 @@
+import math
+
+def findSum(numbers, queries):
+  print("\nThe array of numbers :",numbers)
+  print("The Querry array :",queries)
+
+  for List in queries:
+    Total = 0
+    l = List[0]
+    print(f"\nLower Limit, l ={l}")
+    r = List[1]
+    print(f"Upper  Limit,r ={r}")
+    x = List[2]
+    print(f"Addition Value if 0 in range, X ={x}")
+    #As in example starting index 1 means index 0 of the numbers array
+    for num in range(l-1,r):  
+      Total+= numbers[num]
+      if (numbers[num] == 0):
+        Total += x
+    print("The sum is :",Total)
+
+if __name__ == '__main__':
+  numbers_count = int(input("Enter the number of Numbers in ARRAY: ").strip())
+  numbers = []
+  for _ in range(numbers_count):
+    numbers_item = int(input(f"Enter the {_+1}th number in Array :"))
+    numbers.append(numbers_item)
+
+  queries_rows = int(input("\nEnter the number of Queries :").strip())
+  queries_columns = 3
+
+  queries = []
+
+  for _ in range(queries_rows):
+    queries.append(list(map(int, input(f"Enter the {_+1}th Query Values in l/r/x in one line :").rstrip().split())))
+
+  findSum(numbers,queries)
