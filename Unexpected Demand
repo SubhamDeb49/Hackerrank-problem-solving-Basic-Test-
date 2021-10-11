@@ -1,0 +1,21 @@
+def filledOrders(order,k):
+  print("\nThe array of order is :", order)
+  print("The Number of widgets available is :",k)
+  order.sort()
+  count = 0
+  total = 0
+  for num in order:
+    total += num
+    if (k>= total):
+      count +=1
+  print("\nThe Maximum Number of Orders can be full-filled is: ", count)
+
+if __name__ == '__main__':
+  order_count = int(input("Enter the number of orders: ").strip())
+  order = []
+  for _ in range(order_count):
+    order_item = int(input("Enter the Order Size: ").strip())
+    order.append(order_item)
+
+  k = int(input("Enter the number of Widgets available: ").strip())
+  filledOrders(order,k)
